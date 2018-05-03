@@ -1,3 +1,9 @@
+"""
+Script for finding NMR structures in the PDB database.
+Uses a local copy of the database, stored in pdb_dir
+Outputs a text file containing the names of NMR files.
+"""
+
 from Bio.PDB import *
 import glob
 import gzip
