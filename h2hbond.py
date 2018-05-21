@@ -6,7 +6,8 @@ import pandas as pd
 import pickle
 from pyspark.sql import SparkSession
 
-def h2hanalyze(f): 
+
+def h2hanalyze(f):
     # Parse the structure
     parser = PDBParser()
     pdb = gzip.open(f, 'rt')
@@ -90,6 +91,7 @@ def h2hanalyze(f):
                          "angle1": a1, "angle2": a2, "dihedral": dihed})
     return hh_contacts
 
+
 if __name__ == "__main__":
     spark = SparkSession.builder.master("local[256]").appName(
                 "hhbond").getOrCreate()
@@ -100,5 +102,5 @@ if __name__ == "__main__":
     # Find C-H...H-C contacts
     contacts = nmr_files.flatMap(lambda x: h2hanalyze(x)).collect()
     contacts_df = pd.DataFrame(contacts)
-    # Save data 
+    # Save data
     pickle.dump(contacts_df, open("hhcontacts.pkl", 'wb'))
