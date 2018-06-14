@@ -1,3 +1,10 @@
+"""
+Finds all NMR protein structures in the PDB.
+Usage: Point PDB_DIR to a local installation of the protein data bank.
+       Configure SparkSession to use the number of cores on your system.
+Output: A pickled list of NMR structure paths.
+"""
+
 from Bio.PDB import *
 import glob
 import gzip
