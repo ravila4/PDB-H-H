@@ -1,4 +1,4 @@
-# PDB-HH
+# PDB-H-H
 Scripts for finding C-H···H-C contacts in NMR structures.
 
 ## Contents
