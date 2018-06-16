@@ -18,7 +18,7 @@ def h2hanalyze(f):
     chain_A = structure[0]['A']
 
     # Filter by residues
-    aliphatic_res = ["LEU", "ISO", "VAL", "MET", "PRO"]
+    aliphatic_res = ["LEU", "ILE", "VAL", "MET", "PRO"]
     residues = (res for res in chain_A if res.get_resname() in aliphatic_res)
 
     # Get all alliphatic hydrogens
