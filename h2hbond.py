@@ -97,7 +97,7 @@ if __name__ == "__main__":
                 "hhbond").getOrCreate()
     sc = spark.sparkContext
     # Read file list
-    pdbs = pickle.load(open("nmr_files_peptide.pkl", 'rb'))[:100]
+    pdbs = pickle.load(open("nmr_files_peptide.pkl", 'rb'))
     nmr_files = sc.parallelize(pdbs)
     # Find C-H...H-C contacts
     contacts = nmr_files.flatMap(lambda x: h2hanalyze(x)).collect()
